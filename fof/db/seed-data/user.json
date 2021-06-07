@@ -1,0 +1,19 @@
+{
+    "users": [
+        {
+            "username": "cpark",
+            "password": "fake1",
+            "email": "fake@fake.com"
+        },
+        {
+            "username": "parkc",
+            "password": "fake2",
+            "email": "fake1@fake.com"
+        },
+        {
+            "username": "fakeuser",
+            "password": "fake3",
+            "email": "fake2@fake.com"
+        }
+    ]  
+}

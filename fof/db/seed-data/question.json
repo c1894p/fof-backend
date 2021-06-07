@@ -1,0 +1,24 @@
+{
+    "questions": [
+        {
+            "question":"What is my favorite color?",
+            "options":{
+                "A": "red",
+                "B": "blue",
+                "C": "green",
+                "D": "purple"
+            },
+            "answer" : "blue"
+        },
+        {
+            "question":"What is my favorite food?",
+            "options":{
+                "A": "korean",
+                "B": "american",
+                "C": "italian",
+                "D": "mexcian"
+            },
+            "answer" : "korean"
+        }    
+    ]
+}
