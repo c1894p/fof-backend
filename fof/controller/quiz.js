@@ -33,8 +33,7 @@ router.post("/", async (req, res) => {
       title: req.body.title,
     });
     await newQuiz.save();
-    const quizzes = await Quiz.find({});
-    res.json(quizzes);
+    res.json(newQuiz);
   } catch (e) {
     console.log(e);
   }
