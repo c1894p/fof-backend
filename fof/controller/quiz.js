@@ -63,4 +63,19 @@ router.post("/:id/questions", async (req, res) => {
   }
 });
 
+//update a quiz
+router.put("/:id", async(req,res) =>{
+  try{
+    const { id } = req.params;
+    const quiz = await Quiz.findByIdAndUpdate(id, req.body, {
+      runValidators: true,
+      new: true,
+    })
+    res.json(quiz)
+  }
+  catch(e){
+    console.log(e)
+  }
+})
+
 module.exports = router;

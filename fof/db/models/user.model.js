@@ -1,4 +1,6 @@
-const mongoose = require('../connection')
+const mongoose = require('../connection');
+const Quiz = require('../models/quiz.model');
+
 
 const userSchema = new mongoose.Schema({
     username: {

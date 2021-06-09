@@ -3,7 +3,8 @@ const mongoose = require("mongoose");
 mongoose
     .connect('mongodb://localhost:27017/fof', {
     useNewUrlParser: true, 
-    useUnifiedTopology: true})
+    useUnifiedTopology: true,
+    useFindAndModify: false})
     .then(instance => {
         console.log(`Connected to MongoDB: ${instance.connections[0].name}`);
       })

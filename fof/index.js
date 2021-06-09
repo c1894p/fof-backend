@@ -16,7 +16,6 @@ app.use('/users', userController);
 // app.use('/questions', questionController);
 app.use('/quizzes', quizController);
 
-
 app.listen(port, ()=>{
     console.log('Listening on port 3k!!')
 })
