@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Quiz = require("../db/models/quiz.model");
 const Question = require("../db/models/question.model");
+const { route } = require("./users");
 
 // get all quizzes
 router.get("/", async (req, res) => {
@@ -55,8 +56,8 @@ router.post("/:id/questions", async (req, res) => {
       },
       answer: req.body.answer,
     });
-    quiz.questions.push(newQuestion)
-    quiz.save()
+    quiz.questions.push(newQuestion);
+    quiz.save();
     res.json(quiz);
   } catch (e) {
     console.log(e);
@@ -64,18 +65,36 @@ router.post("/:id/questions", async (req, res) => {
 });
 
 //update a quiz
-router.put("/:id", async(req,res) =>{
-  try{
+router.put("/:id", async (req, res) => {
+  try {
     const { id } = req.params;
     const quiz = await Quiz.findByIdAndUpdate(id, req.body, {
       runValidators: true,
       new: true,
-    })
-    res.json(quiz)
+    });
+    res.json(quiz);
+  } catch (e) {
+    console.log(e);
   }
-  catch(e){
-    console.log(e)
+});
+
+//update questions
+router.put("/:id/:questionid", async (req, res) => {
+  const { id } = req.params.id;
+  const { questionid } = req.params.questionid;
+  const quiz = await Quiz.findById(id);
+  const questions = quiz.questions
+  //array of questions
+  //need too find an element inside the array
+  for(q of questions){
+    q.question = req.body.question
+    q.answer = req.body.answer
+    q.options.A =req.body.optionA
+    q.options.B =req.body.optionB
+    q.options.C =req.body.optionC
+    q.options.D =req.body.optionD
+    q.save()
   }
-})
+});
 
 module.exports = router;
