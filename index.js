@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express()
-const port = 3000
 const cors = require('cors');
 
 const userController = require('./controller/users');
@@ -16,6 +15,9 @@ app.use('/users', userController);
 // app.use('/questions', questionController);
 app.use('/quizzes', quizController);
 
-app.listen(port, ()=>{
-    console.log('Listening on port 3k!!')
+
+app.set("port", process.env.PORT || 3000)
+
+app.listen(app.get("port"), ()=>{
+    console.log(`✅ PORT: ${app.get("port")} 🌟`)
 })
