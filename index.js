@@ -15,7 +15,6 @@ app.use('/users', userController);
 // app.use('/questions', questionController);
 app.use('/quizzes', quizController);
 
-
 app.set("port", process.env.PORT || 3000)
 
 app.listen(app.get("port"), ()=>{
