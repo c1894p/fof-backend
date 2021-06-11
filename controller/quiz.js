@@ -80,21 +80,23 @@ router.put("/:id", async (req, res) => {
 
 //update questions
 router.put("/:id/:questionid", async (req, res) => {
-  const { id } = req.params.id;
-  const { questionid } = req.params.questionid;
+  const { id } = req.params;
+  const { questionid } = req.params;
   const quiz = await Quiz.findById(id);
   const questions = quiz.questions
-  //array of questions
-  //need too find an element inside the array
+
   for(q of questions){
+    if(q._id == questionid){
     q.question = req.body.question
     q.answer = req.body.answer
     q.options.A =req.body.optionA
     q.options.B =req.body.optionB
     q.options.C =req.body.optionC
     q.options.D =req.body.optionD
-    q.save()
+    }
   }
+  quiz.save()
+  res.json(quiz)
 });
 
 module.exports = router;
