@@ -79,7 +79,7 @@ router.put("/:id", async (req, res) => {
 });
 
 //update questions
-router.put("/:id/:questionid", async (req, res) => {
+router.put("/:id/:questionid/editquestion", async (req, res) => {
   const { id } = req.params;
   const { questionid } = req.params;
   const quiz = await Quiz.findById(id);
