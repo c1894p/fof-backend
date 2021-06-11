@@ -25,6 +25,18 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+//get question by ID from a quiz
+router.get("/:quizid/:questionid", async (req, res) => {
+  try {
+    const { quizid, questionid } = req.params;
+    const quiz = await Quiz.findById(quizid);
+    const question = quiz.questions.id(questionid)
+    res.json(question);
+  } catch (e) {
+    console.log(e);
+  }
+});
+
 //create a new quiz
 router.post("/", async (req, res) => {
   try {
