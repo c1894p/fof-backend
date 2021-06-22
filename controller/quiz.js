@@ -111,4 +111,10 @@ router.put("/:id/:questionid/editquestion", async (req, res) => {
   res.json(quiz)
 });
 
+//delete quiz
+router.delete('/:id', (req,res) =>{
+  const { id } = req.params;
+  const quiz = Quiz.findByIdAndDelete(id)
+})
+
 module.exports = router;

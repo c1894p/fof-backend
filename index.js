@@ -3,7 +3,7 @@ const app = express()
 const cors = require('cors');
 
 const userController = require('./controller/users');
-const questionController = require('./controller/question');
+// const questionController = require('./controller/question');
 const quizController = require('./controller/quiz');
 
 //middleware
